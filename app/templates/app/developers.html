@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="speakers-section" >
+	<div class="container">
+
+		<h1 class="display-1 bold color_white content__title text-center"><span class="color_danger">OUR </span>TEAM<span class="vim-caret">&nbsp;</span></h1><br><br>
+		<div class="row justify-content-center">
+
+			<div class="speaker-block col-lg-4 col-md-12">
+				<div class="inner-box">
+					<div class="image-box">
+						<figure class="image"><img src="{% static 'app/images/ankit.jpg' %}"  alt="Ankit Chaudhari">
+							<div class="social-links">
+								<ul>
+								   <li><a target = '_blank' href="https://www.linkedin.com/in/apoorve-goyal/"><span class="fab fa-linkedin"></span></a></li>
+								   <li><a target = '_blank' href="https:www.githib.com/Ankit1598"><span class="fab fa-github"></span></a></li>
+								</ul>
+							</div>
+						</figure>
+					</div>
+					<div class="caption-box">
+						<h2 class="name"> Ankit Chaudhari </h2>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="speaker-block col-lg-4 col-md-12" data-wow-delay="400ms">
+				<div class="inner-box">
+					<div class="image-box">
+						<figure class="image"><img src="{% static 'app/images/dhananjay.jpg' %}"  alt="Dhananjay Patil">
+							<div class="social-links">
+								<ul>
+								   <li><a target = '_blank' href="https://www.linkedin.com/in/dhananjay-patil-b199121b3"><span class="fab fa-linkedin"></span></a></li>
+								   <li><a target = '_blank' href="https://github.com/dpatil98"><span class="fab fa-github"></span></a></li>
+								</ul>
+							</div>
+						</figure>
+					</div>
+				   <div class="caption-box">
+						<h2 class="name"> Dhananjay Patil </h2>
+					</div>
+				</div>
+			</div>
+			<div class="speaker-block col-lg-4 col-md-12" data-wow-delay="400ms">
+				<div class="inner-box">
+					<div class="image-box">
+						<figure class="image"><img src="{% static 'app/images/pratik.jpeg' %}"  alt="Pratik Patil">
+							<div class="social-links">
+								<ul>
+								   <li><a target = '_blank' href="https://www.linkedin.com/in/pratik-patil-3279761b4"><span class="fab fa-linkedin"></span></a></li>
+								   <li><a target = '_blank' href="https://github.com/Patilpratik1798"><span class="fab fa-github"></span></a></li>
+								</ul>
+							</div>
+						</figure>
+					</div>
+				   <div class="caption-box">
+						<h2 class="name"> Pratik Patil </h2>
+					</div>
+				</div>
+			</div>
+
+			<div class="speaker-block col-lg-4 col-md-12" data-wow-delay="400ms">
+				<div class="inner-box">
+					<div class="image-box">
+						<figure class="image"><img src="{% static 'app/images/nikhil.jpg' %}"  alt="Nikhil Chaudhari">
+							<div class="social-links">
+								<ul>
+								   <li><a target = '_blank' href="https://github.com/chaudharin19298"><span class="fab fa-github"></span></a></li>
+								</ul>
+							</div>
+						</figure>
+					</div>
+					<div class="caption-box">
+						<h2 class="name"> Nikhil Chaudhari </h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

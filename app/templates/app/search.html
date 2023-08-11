@@ -1,0 +1,84 @@
+{% extends 'app/base.html' %}
+{% block content %}
+
+<div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-8">
+
+				<p class="text-grey text-spacey hackerFont lead mb-5">
+					Ask to know the truth<span class="vim-caret">&nbsp;</span>
+				</p>
+				<form method='post' id="form">
+					<div class="input-group mb-3">
+						{% csrf_token %}
+						<input type="text" class="form-control query" name="query" placeholder="Your Query"
+							  aria-describedby="basic-addon2">
+
+					</div>
+					<div class="btn-group">
+						<select class="custom-select text-light" name = "site">
+							<option class="dropdown-item text-light" value="1" selected>General</option>
+							<option class="dropdown-item text-light" value="2">Wikipedia</option>
+						</select></div>
+					<br><br><br>
+					<div>
+						<button class="btn btn-outline-secondary" type="submit" value="Submit">Search !</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="jumbotron bg-transparent mb-0 pt-3 radius-0">
+	<div class="container">
+		<div class="row">
+			<div class="spinner-box loader">
+				<div class="blue-orbit leo"></div>
+				<div class="green-orbit leo"></div>
+				<div class="red-orbit leo"></div>
+				<div class="white-orbit w1 leo"></div>
+				<div class="white-orbit w2 leo"></div>
+				<div class="white-orbit w3 leo"></div>
+			</div>
+			<div class="col-xl-12 output">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$(document).on('submit', '#form', function(e){
+		e.preventDefault();
+		if($('.ans').length){
+			$('.ans').detach()
+		}
+		$('.loader')[0].style.display = 'flex'
+		data = {
+				query: $('.query').val(),
+				site: $('.custom-select').val(),
+				csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+			}
+		console.log(data)
+		$.ajax({
+			type:'POST',
+			url: '',
+			data,
+			success: function(resp){
+				$('.loader')[0].style.display = 'none';
+				$('.output').html('<div class="ans"><h1 class="display-1 bold color_white content__title text-center"><span class="color_danger"></span>\
+					WE FOUND THIS<span class="vim-caret">&nbsp;</span></h1>\
+					<br>\
+				<h3>Results from ' + resp.site + ':</h3>\
+				<p class="text-grey text-spacey hackerFont lead mb-5">'
+					+ resp.ans + '<span class="vim-caret">&nbsp;</span>\
+				</p></div>')
+			}
+		})
+	})
+</script>
+
+{% endblock content %}
